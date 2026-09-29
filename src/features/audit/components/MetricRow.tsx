@@ -8,17 +8,17 @@ import styles from './MetricRow.module.css';
 interface MetricRowProps {
   id: LabMetricId | FieldMetricId;
   value: number;
-  display?: string;
   rating: Rating;
 }
 
 /** One metric, with a scale that shows where it lands against Google's thresholds. */
-export function MetricRow({ id, value, display, rating }: MetricRowProps) {
+export function MetricRow({ id, value, rating }: MetricRowProps) {
   const { t, locale } = useI18n();
   const [good, poor] = metricThresholds(id);
   const max = poor * 1.6;
   const position = Math.min(Math.max(value / max, 0.015), 0.985);
-  const formatted = display || formatMetric(id, value, locale);
+  // Formatted here, not taken from Lighthouse, so separators follow the UI language.
+  const formatted = formatMetric(id, value, locale);
 
   const style = {
     '--good-w': `${(good / max) * 100}%`,

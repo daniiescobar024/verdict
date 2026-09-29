@@ -6,6 +6,8 @@ import type { ApiErrorBody, ApiErrorCode } from '../src/features/audit/model/typ
 const PSI_ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 const CATEGORIES = ['PERFORMANCE', 'ACCESSIBILITY', 'BEST_PRACTICES', 'SEO'];
 const UPSTREAM_TIMEOUT_MS = 55_000;
+/** Lighthouse localizes audit titles and descriptions; only the app's own languages are forwarded. */
+const LOCALES = new Set(['en', 'es']);
 const UNREACHABLE_MARKERS = [
   'FAILED_DOCUMENT_REQUEST',
   'ERRORED_DOCUMENT_REQUEST',
@@ -64,6 +66,8 @@ export async function handleAudit(
   upstream.searchParams.set('url', target);
   upstream.searchParams.set('strategy', strategy);
   for (const category of CATEGORIES) upstream.searchParams.append('category', category);
+  const locale = params.get('locale');
+  if (locale && LOCALES.has(locale)) upstream.searchParams.set('locale', locale);
   if (apiKey) upstream.searchParams.set('key', apiKey);
 
   let response: Response;

@@ -16,10 +16,10 @@ import { SegmentedControl } from '../shared/ui/SegmentedControl';
 import styles from './Page.module.css';
 
 function CompareResults({ a, b, strategy }: { a: string; b: string; strategy: Strategy }) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   // Both audits run in parallel; the slower one sets the pace.
   const [first, second] = useQueries({
-    queries: [auditQuery(a, strategy), auditQuery(b, strategy)],
+    queries: [auditQuery(a, strategy, locale), auditQuery(b, strategy, locale)],
   });
 
   if (!first || !second) return null;

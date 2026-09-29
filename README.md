@@ -7,7 +7,7 @@
 Run a Google Lighthouse audit on any website and get a verdict a business owner understands —
 speed, accessibility, SEO, and a prioritized list of what to fix first.
 
-[How it works](#architecture) · [Run it locally](#getting-started)
+[Live demo](https://verdict-brown-three.vercel.app) · [How it works](#architecture) · [Run it locally](#getting-started)
 
 ![Verdict report, dark theme](docs/report.jpg)
 
@@ -48,7 +48,7 @@ while keeping every underlying metric one click away for the developer.
 | Routing | React Router                                  | URL-driven state: every report and comparison is a shareable link.                   |
 | Styling | CSS Modules + design tokens                   | Zero runtime, scoped styles, one source of truth for both themes and print.          |
 | API     | Vercel Function (Web `Request`/`Response`)    | Keeps the API key server-side and shrinks the payload before it reaches the browser. |
-| Quality | Vitest, Testing Library, ESLint (a11y strict) | 57 tests covering parsing, the server handler and user flows; CI on every push.      |
+| Quality | Vitest, Testing Library, ESLint (a11y strict) | 59 tests covering parsing, the server handler and user flows; CI on every push.      |
 
 ## Architecture
 
@@ -59,7 +59,7 @@ Browser ──▶ /api/audit?url=…&strategy=…   (Vercel Function, server/han
             Google PageSpeed Insights v5  ──▶  ~1 MB Lighthouse JSON
                │
                ▼  normalizeReport()  (src/features/audit/model/normalize.ts)
-            ~50 KB AuditReport ──▶  CDN cache (s-maxage=600)  ──▶  React UI
+            ~35 KB AuditReport ──▶  CDN cache (s-maxage=600)  ──▶  React UI
 ```
 
 **Key engineering decisions**

@@ -8,10 +8,12 @@ import { ReportView } from '../features/audit/components/ReportView';
 import { useAuditHistory } from '../features/audit/hooks/useAuditHistory';
 import { displayUrl, normalizeUrl, parseStrategy } from '../features/audit/model/params';
 import type { Strategy } from '../features/audit/model/types';
+import { useI18n } from '../shared/i18n/useI18n';
 
 function Report({ url, strategy }: { url: string; strategy: Strategy }) {
   const queryClient = useQueryClient();
-  const query = useQuery(auditQuery(url, strategy));
+  const { locale } = useI18n();
+  const query = useQuery(auditQuery(url, strategy, locale));
   const { record } = useAuditHistory();
   const [refresh, setRefresh] = useState<{ pending: boolean; error: unknown }>({
     pending: false,
@@ -25,8 +27,8 @@ function Report({ url, strategy }: { url: string; strategy: Strategy }) {
   async function rerun() {
     setRefresh({ pending: true, error: null });
     try {
-      const report = await fetchAudit(url, strategy, undefined, { fresh: true });
-      queryClient.setQueryData(auditQuery(url, strategy).queryKey, report);
+      const report = await fetchAudit(url, strategy, undefined, { fresh: true, locale });
+      queryClient.setQueryData(auditQuery(url, strategy, locale).queryKey, report);
       setRefresh({ pending: false, error: null });
     } catch (error) {
       setRefresh({ pending: false, error });

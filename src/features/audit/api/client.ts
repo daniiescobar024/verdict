@@ -1,5 +1,6 @@
 import { queryOptions } from '@tanstack/react-query';
 import type { ApiErrorBody, ApiErrorCode, AuditReport, Strategy } from '../model/types';
+import type { Locale } from '../../../shared/i18n/context';
 
 export type AuditErrorCode = ApiErrorCode | 'NETWORK';
 
@@ -28,9 +29,9 @@ export async function fetchAudit(
   url: string,
   strategy: Strategy,
   signal?: AbortSignal,
-  { fresh = false }: { fresh?: boolean } = {},
+  { fresh = false, locale = 'en' }: { fresh?: boolean; locale?: Locale } = {},
 ): Promise<AuditReport> {
-  const query = new URLSearchParams({ url, strategy });
+  const query = new URLSearchParams({ url, strategy, locale });
   // A unique query string bypasses the CDN cache when the user explicitly re-runs.
   if (fresh) query.set('t', Date.now().toString(36));
   let response: Response;
@@ -53,10 +54,10 @@ export async function fetchAudit(
 const isRetryable = (error: unknown) =>
   error instanceof AuditError && (error.code === 'NETWORK' || error.code === 'UPSTREAM');
 
-export const auditQuery = (url: string, strategy: Strategy) =>
+export const auditQuery = (url: string, strategy: Strategy, locale: Locale) =>
   queryOptions({
-    queryKey: ['audit', strategy, url] as const,
-    queryFn: ({ signal }) => fetchAudit(url, strategy, signal),
+    queryKey: ['audit', strategy, locale, url] as const,
+    queryFn: ({ signal }) => fetchAudit(url, strategy, signal, { locale }),
     staleTime: 10 * 60_000,
     gcTime: 30 * 60_000,
     retry: (failureCount, error) => failureCount < 1 && isRetryable(error),

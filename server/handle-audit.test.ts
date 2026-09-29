@@ -15,12 +15,13 @@ describe('handleAudit', () => {
 
   it('calls PageSpeed with every category, the strategy and the server-side key', async () => {
     const fetchMock = vi.fn().mockResolvedValue(jsonResponse(psiFixture));
-    await handleAudit(request('url=acme.com&strategy=desktop'), 'SECRET', fetchMock);
+    await handleAudit(request('url=acme.com&strategy=desktop&locale=es'), 'SECRET', fetchMock);
 
     const called = new URL(String(fetchMock.mock.calls[0]?.[0]));
     expect(called.searchParams.get('url')).toBe('https://acme.com/');
     expect(called.searchParams.get('strategy')).toBe('desktop');
     expect(called.searchParams.get('key')).toBe('SECRET');
+    expect(called.searchParams.get('locale')).toBe('es');
     expect(called.searchParams.getAll('category')).toEqual([
       'PERFORMANCE',
       'ACCESSIBILITY',
@@ -98,6 +99,14 @@ describe('handleAudit', () => {
     ).toMatchObject({
       error: { code: 'UPSTREAM' },
     });
+  });
+
+  it('ignores unsupported locales instead of forwarding them', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(psiFixture));
+    await handleAudit(request('url=acme.com&locale=xx%26key%3Dstolen'), undefined, fetchMock);
+    const called = new URL(String(fetchMock.mock.calls[0]?.[0]));
+    expect(called.searchParams.has('locale')).toBe(false);
+    expect(called.searchParams.has('key')).toBe(false);
   });
 
   it('never caches errors', async () => {

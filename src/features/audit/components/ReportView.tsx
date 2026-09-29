@@ -153,7 +153,12 @@ export function ReportView({ report, onRerun, isRefreshing }: ReportViewProps) {
           />
           <ul className={styles.metrics} role="list">
             {report.lab.map((metric) => (
-              <MetricRow key={metric.id} {...metric} />
+              <MetricRow
+                key={metric.id}
+                id={metric.id}
+                value={metric.value}
+                rating={metric.rating}
+              />
             ))}
           </ul>
         </section>
