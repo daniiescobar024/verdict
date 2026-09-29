@@ -43,7 +43,9 @@ export function ReportView({ report, onRerun, isRefreshing }: ReportViewProps) {
   const { t, formatDate } = useI18n();
   const [copied, setCopied] = useState(false);
   const tone = getVerdictTone(report);
-  const device = t(report.strategy === 'mobile' ? 'form.mobile' : 'form.desktop');
+  const deviceLabel = t(report.strategy === 'mobile' ? 'form.mobile' : 'form.desktop');
+  // Lower-case inside sentences ("on a simulated mobile"), title-case in the metadata line.
+  const device = deviceLabel.toLowerCase();
   const other = report.strategy === 'mobile' ? 'desktop' : 'mobile';
   const redirected = displayUrl(report.finalUrl) !== displayUrl(report.requestedUrl);
 
@@ -65,7 +67,7 @@ export function ReportView({ report, onRerun, isRefreshing }: ReportViewProps) {
         <p className={styles.meta}>
           {t('report.audited', {
             date: formatDate(report.fetchedAt),
-            device,
+            device: deviceLabel,
             version: report.lighthouseVersion ?? '—',
           })}
         </p>
