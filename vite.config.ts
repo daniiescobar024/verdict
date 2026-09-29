@@ -1,7 +1,7 @@
 /// <reference types="vitest/config" />
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import { handleAudit } from './server/handle-audit';
+import { handleAudit } from './server/handle-audit.js';
 
 /**
  * Serves the same `/api/audit` handler that runs on Vercel, so local
