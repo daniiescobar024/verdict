@@ -1,7 +1,7 @@
-import { normalizeReport } from '../src/features/audit/model/normalize';
-import { normalizeUrl, parseStrategy } from '../src/features/audit/model/params';
-import type { PsiErrorBody, PsiResponse } from '../src/features/audit/model/psi-types';
-import type { ApiErrorBody, ApiErrorCode } from '../src/features/audit/model/types';
+import { normalizeReport } from '../src/features/audit/model/normalize.js';
+import { normalizeUrl, parseStrategy } from '../src/features/audit/model/params.js';
+import type { PsiErrorBody, PsiResponse } from '../src/features/audit/model/psi-types.js';
+import type { ApiErrorBody, ApiErrorCode } from '../src/features/audit/model/types.js';
 
 const PSI_ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 const CATEGORIES = ['PERFORMANCE', 'ACCESSIBILITY', 'BEST_PRACTICES', 'SEO'];

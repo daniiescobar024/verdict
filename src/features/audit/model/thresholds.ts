@@ -1,4 +1,4 @@
-import type { CategoryKey, FieldMetricId, LabMetricId, Rating } from './types';
+import type { CategoryKey, FieldMetricId, LabMetricId, Rating } from './types.js';
 
 /**
  * "Good" and "poor" boundaries published by Google.

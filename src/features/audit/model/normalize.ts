@@ -1,4 +1,4 @@
-import type { PsiAudit, PsiCategory, PsiLoadingExperience, PsiResponse } from './psi-types';
+import type { PsiAudit, PsiCategory, PsiLoadingExperience, PsiResponse } from './psi-types.js';
 import type {
   AuditReport,
   CategoryKey,
@@ -10,8 +10,8 @@ import type {
   LabMetricId,
   Rating,
   Strategy,
-} from './types';
-import { rateMetric } from './thresholds';
+} from './types.js';
+import { rateMetric } from './thresholds.js';
 
 const CATEGORY_MAP = [
   ['performance', 'performance'],

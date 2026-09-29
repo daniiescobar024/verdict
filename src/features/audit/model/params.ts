@@ -1,4 +1,4 @@
-import type { Strategy } from './types';
+import type { Strategy } from './types.js';
 
 const PRIVATE_HOST =
   /^(localhost|127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|0\.0\.0\.0|\[?::1\]?$)/i;
