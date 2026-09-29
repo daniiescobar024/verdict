@@ -1,0 +1,362 @@
+{
+  "id": "https://acme-plumbing.example/",
+  "loadingExperience": {
+    "id": "https://acme-plumbing.example/",
+    "overall_category": "SLOW",
+    "metrics": {
+      "LARGEST_CONTENTFUL_PAINT_MS": {
+        "percentile": 4300,
+        "category": "SLOW"
+      },
+      "INTERACTION_TO_NEXT_PAINT": {
+        "percentile": 180,
+        "category": "FAST"
+      },
+      "CUMULATIVE_LAYOUT_SHIFT_SCORE": {
+        "percentile": 12,
+        "category": "AVERAGE"
+      },
+      "FIRST_CONTENTFUL_PAINT_MS": {
+        "percentile": 2100,
+        "category": "AVERAGE"
+      },
+      "EXPERIMENTAL_TIME_TO_FIRST_BYTE": {
+        "percentile": 950,
+        "category": "AVERAGE"
+      }
+    }
+  },
+  "originLoadingExperience": {
+    "id": "https://acme-plumbing.example",
+    "overall_category": "AVERAGE",
+    "metrics": {
+      "LARGEST_CONTENTFUL_PAINT_MS": {
+        "percentile": 3100,
+        "category": "AVERAGE"
+      }
+    }
+  },
+  "lighthouseResult": {
+    "requestedUrl": "https://acme-plumbing.example/",
+    "finalUrl": "https://www.acme-plumbing.example/",
+    "finalDisplayedUrl": "https://www.acme-plumbing.example/",
+    "fetchTime": "2026-09-28T23:40:00.000Z",
+    "lighthouseVersion": "12.8.2",
+    "configSettings": {
+      "formFactor": "mobile"
+    },
+    "categories": {
+      "performance": {
+        "id": "performance",
+        "title": "Performance",
+        "score": 0.41,
+        "auditRefs": [
+          {
+            "id": "first-contentful-paint",
+            "weight": 10,
+            "group": "metrics"
+          },
+          {
+            "id": "largest-contentful-paint",
+            "weight": 25,
+            "group": "metrics"
+          },
+          {
+            "id": "total-blocking-time",
+            "weight": 30,
+            "group": "metrics"
+          },
+          {
+            "id": "cumulative-layout-shift",
+            "weight": 25,
+            "group": "metrics"
+          },
+          {
+            "id": "speed-index",
+            "weight": 10,
+            "group": "metrics"
+          },
+          {
+            "id": "render-blocking-insight",
+            "weight": 0,
+            "group": "insights"
+          },
+          {
+            "id": "image-delivery-insight",
+            "weight": 0,
+            "group": "insights"
+          },
+          {
+            "id": "font-display-insight",
+            "weight": 0,
+            "group": "insights"
+          },
+          {
+            "id": "unused-javascript",
+            "weight": 0,
+            "group": "diagnostics"
+          },
+          {
+            "id": "third-party-summary",
+            "weight": 0,
+            "group": "diagnostics"
+          },
+          {
+            "id": "final-screenshot",
+            "weight": 0,
+            "group": "hidden"
+          }
+        ]
+      },
+      "accessibility": {
+        "id": "accessibility",
+        "title": "Accessibility",
+        "score": 0.78,
+        "auditRefs": [
+          {
+            "id": "color-contrast",
+            "weight": 7,
+            "group": "a11y-names-labels"
+          },
+          {
+            "id": "image-alt",
+            "weight": 10,
+            "group": "a11y-names-labels"
+          },
+          {
+            "id": "label",
+            "weight": 7,
+            "group": "a11y-names-labels"
+          },
+          {
+            "id": "aria-valid-attr",
+            "weight": 0,
+            "group": "a11y-names-labels"
+          },
+          {
+            "id": "logical-tab-order",
+            "weight": 0,
+            "group": "a11y-names-labels"
+          }
+        ]
+      },
+      "best-practices": {
+        "id": "best-practices",
+        "title": "Best Practices",
+        "score": 0.96,
+        "auditRefs": [
+          {
+            "id": "errors-in-console",
+            "weight": 1,
+            "group": "best-practices-general"
+          },
+          {
+            "id": "is-on-https",
+            "weight": 5,
+            "group": "best-practices-general"
+          }
+        ]
+      },
+      "seo": {
+        "id": "seo",
+        "title": "SEO",
+        "score": 0.83,
+        "auditRefs": [
+          {
+            "id": "meta-description",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "link-text",
+            "weight": 1,
+            "group": "seo-content"
+          },
+          {
+            "id": "image-alt",
+            "weight": 1,
+            "group": "seo-content"
+          }
+        ]
+      }
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "id": "first-contentful-paint",
+        "title": "First Contentful Paint",
+        "description": "First Contentful Paint. [Learn more about it](https://developer.chrome.com/docs/lighthouse/first-contentful-paint/).",
+        "score": 0.62,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 2380.5,
+        "numericUnit": "millisecond",
+        "displayValue": "2.4 s"
+      },
+      "largest-contentful-paint": {
+        "id": "largest-contentful-paint",
+        "title": "Largest Contentful Paint",
+        "description": "Largest Contentful Paint. [Learn more about it](https://developer.chrome.com/docs/lighthouse/largest-contentful-paint/).",
+        "score": 0.21,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 5120.2,
+        "numericUnit": "millisecond",
+        "displayValue": "5.1 s"
+      },
+      "total-blocking-time": {
+        "id": "total-blocking-time",
+        "title": "Total Blocking Time",
+        "description": "Total Blocking Time. [Learn more about it](https://developer.chrome.com/docs/lighthouse/total-blocking-time/).",
+        "score": 0.55,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 410,
+        "numericUnit": "millisecond",
+        "displayValue": "410 ms"
+      },
+      "cumulative-layout-shift": {
+        "id": "cumulative-layout-shift",
+        "title": "Cumulative Layout Shift",
+        "description": "Cumulative Layout Shift. [Learn more about it](https://developer.chrome.com/docs/lighthouse/cumulative-layout-shift/).",
+        "score": 0.95,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 0.042,
+        "numericUnit": "unitless",
+        "displayValue": "0.042"
+      },
+      "speed-index": {
+        "id": "speed-index",
+        "title": "Speed Index",
+        "description": "Speed Index. [Learn more about it](https://developer.chrome.com/docs/lighthouse/speed-index/).",
+        "score": 0.7,
+        "scoreDisplayMode": "numeric",
+        "numericValue": 3900,
+        "numericUnit": "millisecond",
+        "displayValue": "3.9 s"
+      },
+      "render-blocking-insight": {
+        "id": "render-blocking-insight",
+        "title": "Render blocking requests",
+        "description": "Render blocking requests. [Learn more about it](https://developer.chrome.com/docs/lighthouse/render-blocking-insight/).",
+        "score": 0,
+        "scoreDisplayMode": "metricSavings",
+        "metricSavings": {
+          "FCP": 1200,
+          "LCP": 1350
+        },
+        "details": {
+          "type": "table"
+        }
+      },
+      "image-delivery-insight": {
+        "id": "image-delivery-insight",
+        "title": "Improve image delivery",
+        "description": "Improve image delivery. [Learn more about it](https://developer.chrome.com/docs/lighthouse/image-delivery-insight/).",
+        "score": 0.5,
+        "scoreDisplayMode": "metricSavings",
+        "metricSavings": {
+          "LCP": 600
+        },
+        "details": {
+          "type": "table"
+        }
+      },
+      "unused-javascript": {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "description": "Reduce unused JavaScript. [Learn more about it](https://developer.chrome.com/docs/lighthouse/unused-javascript/).",
+        "score": 0.45,
+        "scoreDisplayMode": "metricSavings",
+        "details": {
+          "type": "opportunity",
+          "overallSavingsMs": 900
+        }
+      },
+      "font-display-insight": {
+        "id": "font-display-insight",
+        "title": "Font display",
+        "description": "Font display. [Learn more about it](https://developer.chrome.com/docs/lighthouse/font-display-insight/).",
+        "score": 1,
+        "scoreDisplayMode": "metricSavings"
+      },
+      "third-party-summary": {
+        "id": "third-party-summary",
+        "title": "Reduce the impact of third-party code",
+        "description": "Reduce the impact of third-party code. [Learn more about it](https://developer.chrome.com/docs/lighthouse/third-party-summary/).",
+        "score": null,
+        "scoreDisplayMode": "informative"
+      },
+      "color-contrast": {
+        "id": "color-contrast",
+        "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+        "description": "Background and foreground colors do not have a sufficient contrast ratio.. [Learn more about it](https://developer.chrome.com/docs/lighthouse/color-contrast/).",
+        "score": 0,
+        "scoreDisplayMode": "binary"
+      },
+      "image-alt": {
+        "id": "image-alt",
+        "title": "Image elements do not have `[alt]` attributes",
+        "description": "Image elements do not have `[alt]` attributes. [Learn more about it](https://developer.chrome.com/docs/lighthouse/image-alt/).",
+        "score": 0,
+        "scoreDisplayMode": "binary"
+      },
+      "label": {
+        "id": "label",
+        "title": "Form elements have associated labels",
+        "description": "Form elements have associated labels. [Learn more about it](https://developer.chrome.com/docs/lighthouse/label/).",
+        "score": 1,
+        "scoreDisplayMode": "binary"
+      },
+      "aria-valid-attr": {
+        "id": "aria-valid-attr",
+        "title": "ARIA attributes are valid",
+        "description": "ARIA attributes are valid. [Learn more about it](https://developer.chrome.com/docs/lighthouse/aria-valid-attr/).",
+        "score": null,
+        "scoreDisplayMode": "notApplicable"
+      },
+      "logical-tab-order": {
+        "id": "logical-tab-order",
+        "title": "The page has a logical tab order",
+        "description": "The page has a logical tab order. [Learn more about it](https://developer.chrome.com/docs/lighthouse/logical-tab-order/).",
+        "score": null,
+        "scoreDisplayMode": "manual"
+      },
+      "errors-in-console": {
+        "id": "errors-in-console",
+        "title": "Browser errors were logged to the console",
+        "description": "Browser errors were logged to the console. [Learn more about it](https://developer.chrome.com/docs/lighthouse/errors-in-console/).",
+        "score": 0,
+        "scoreDisplayMode": "binary"
+      },
+      "is-on-https": {
+        "id": "is-on-https",
+        "title": "Uses HTTPS",
+        "description": "Uses HTTPS. [Learn more about it](https://developer.chrome.com/docs/lighthouse/is-on-https/).",
+        "score": 1,
+        "scoreDisplayMode": "binary"
+      },
+      "meta-description": {
+        "id": "meta-description",
+        "title": "Document does not have a meta description",
+        "description": "Document does not have a meta description. [Learn more about it](https://developer.chrome.com/docs/lighthouse/meta-description/).",
+        "score": 0,
+        "scoreDisplayMode": "binary"
+      },
+      "link-text": {
+        "id": "link-text",
+        "title": "Links do not have descriptive text",
+        "description": "Links do not have descriptive text. [Learn more about it](https://developer.chrome.com/docs/lighthouse/link-text/).",
+        "score": 0.6,
+        "scoreDisplayMode": "binary"
+      },
+      "final-screenshot": {
+        "id": "final-screenshot",
+        "title": "Final Screenshot",
+        "score": null,
+        "scoreDisplayMode": "informative",
+        "details": {
+          "type": "screenshot",
+          "data": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/wAALCAABAAEBAREA/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AVN//2Q=="
+        }
+      }
+    }
+  },
+  "analysisUTCTimestamp": "2026-09-28T23:40:01.000Z"
+}

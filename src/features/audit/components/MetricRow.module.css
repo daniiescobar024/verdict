@@ -1,0 +1,114 @@
+.row {
+  --tone: var(--faint);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-5);
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.row[data-rating='good'] {
+  --tone: var(--good);
+  --soft: var(--good-soft);
+}
+.row[data-rating='needs-improvement'] {
+  --tone: var(--warn);
+  --soft: var(--warn-soft);
+}
+.row[data-rating='poor'] {
+  --tone: var(--bad);
+  --soft: var(--bad-soft);
+}
+
+.name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-weight: 560;
+}
+
+.abbr {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--faint);
+  letter-spacing: 0.06em;
+}
+
+.why {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: var(--step--1);
+  max-width: 60ch;
+}
+
+.value {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  font-variant-numeric: tabular-nums;
+  color: var(--tone);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 4px var(--soft, transparent);
+}
+
+.scale {
+  grid-column: 1 / -1;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--good-w) var(--ni-w) 1fr;
+  gap: 3px;
+  height: 4px;
+  margin-top: var(--space-2);
+}
+
+.scale span {
+  border-radius: 2px;
+  opacity: 0.4;
+}
+.scale span:nth-child(1) {
+  background: var(--good);
+}
+.scale span:nth-child(2) {
+  background: var(--warn);
+}
+.scale span:nth-child(3) {
+  background: var(--bad);
+}
+
+.marker {
+  position: absolute;
+  top: 50%;
+  left: var(--pos);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  translate: -50% -50%;
+  background: var(--bg);
+  border: 2px solid var(--tone);
+  animation: slide 1200ms var(--ease) both;
+}
+
+@keyframes slide {
+  from {
+    left: 0;
+  }
+}
+
+.target {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--faint);
+  letter-spacing: 0.04em;
+}

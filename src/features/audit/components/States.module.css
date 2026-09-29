@@ -1,0 +1,94 @@
+.state {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 640px;
+  padding-block: var(--space-9);
+}
+
+.state h1 {
+  font-size: var(--step-3);
+  overflow-wrap: anywhere;
+}
+
+.url {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  color: var(--muted);
+}
+
+.progress {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line-strong);
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: sweep 1.8s var(--ease) infinite;
+}
+
+@keyframes sweep {
+  from {
+    translate: -100% 0;
+  }
+  to {
+    translate: 300% 0;
+  }
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-3);
+  counter-reset: step;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--faint);
+  transition: color 400ms var(--ease);
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.step[data-status='done'] {
+  color: var(--muted);
+}
+
+.step[data-status='active'] {
+  color: var(--text);
+}
+
+.step[data-status='active']::before {
+  color: var(--accent);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--faint);
+  letter-spacing: 0.08em;
+}

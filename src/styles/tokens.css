@@ -1,0 +1,88 @@
+/* Design tokens. Dark is the signature theme; light is a full peer, not an afterthought. */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0d0c0a;
+  --surface: #151310;
+  --surface-2: #1c1a16;
+  --line: rgb(240 234 222 / 0.09);
+  --line-strong: rgb(240 234 222 / 0.17);
+  --text: #efe9df;
+  --muted: #a8a195;
+  --faint: #767066;
+  --accent: #cdab6d;
+  --accent-strong: #e3c68f;
+  --accent-ink: #14110b;
+  --glow: rgb(205 171 109 / 0.07);
+  --good: #8cc59f;
+  --warn: #e3ae5e;
+  --bad: #e5806a;
+  --good-soft: rgb(140 197 159 / 0.12);
+  --warn-soft: rgb(227 174 94 / 0.12);
+  --bad-soft: rgb(229 128 106 / 0.12);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.03) inset, 0 24px 60px -30px rgb(0 0 0 / 0.8);
+  --grain-opacity: 0.05;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f1e8;
+  --surface: #fffdf8;
+  --surface-2: #eee8dc;
+  --line: rgb(26 23 19 / 0.1);
+  --line-strong: rgb(26 23 19 / 0.2);
+  --text: #1a1713;
+  --muted: #5d564b;
+  --faint: #8b8478;
+  --accent: #86652a;
+  --accent-strong: #6e5220;
+  --accent-ink: #fffdf8;
+  --glow: rgb(134 101 42 / 0.08);
+  --good: #2e6c42;
+  --warn: #8a5a10;
+  --bad: #a3402b;
+  --good-soft: rgb(46 108 66 / 0.1);
+  --warn-soft: rgb(138 90 16 / 0.1);
+  --bad-soft: rgb(163 64 43 / 0.1);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.7) inset, 0 24px 50px -32px rgb(60 45 20 / 0.35);
+  --grain-opacity: 0.035;
+}
+
+:root {
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-body:
+    'Inter Tight Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.86rem);
+  --step-0: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+  --step-1: clamp(1.15rem, 1.08rem + 0.35vw, 1.35rem);
+  --step-2: clamp(1.45rem, 1.3rem + 0.75vw, 1.95rem);
+  --step-3: clamp(1.9rem, 1.6rem + 1.5vw, 2.9rem);
+  --step-4: clamp(2.5rem, 1.9rem + 3vw, 4.8rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --max: 1180px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 0ms;
+  }
+}
